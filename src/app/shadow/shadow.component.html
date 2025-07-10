@@ -1,0 +1,98 @@
+
+    <!-- <router-outlet></router-outlet> -->
+
+    <div class ="search">
+    <input type="text" placeholder="search" [(ngModel)]="searchText"  >
+
+        <button  class="Bhuvanesh" type="submit" (click)="resetData()"> Reset</button>
+
+  </div>
+
+    <button (click)="Sales()">sales</button>
+
+
+    <button (click)="Payment()">payment</button>
+
+
+
+
+
+ <ng-container *ngIf="showSales">
+    <table border="1">
+        <thead>
+          <th>SalesId</th>
+          <th>ProductName</th>
+          <th>ProductQuantity</th>
+          <th>ProductMade</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sales of salesDetails | search:searchText  ;let i=index" >
+            <td>{{i+1}}</td>
+            <td>{{sales.productname}}</td>
+            <td>{{sales.productquantity}}</td>
+            <td>{{sales.productMade}}</td>
+            <td><button (click)="getSalesDetails(sales)" values="Get Salesdetails">Get Sales
+            </button></td>
+          </tr>
+        </tbody>
+    </table>
+    <ng-container *ngIf="salesData1">
+        <h3>Sales Details:</h3>
+        <div>{{salesData.productname}}</div>
+        <div>{{salesData.productquantity}}</div>
+        <div>{{salesData.productMade}}</div>
+
+        </ng-container>
+</ng-container>
+
+<ng-container *ngIf="showPayment">
+    <table border="1">
+        <thead>
+          <th>PaymentId</th>
+          <th>Price</th>
+          <th>HolderName</th>
+          <th>HolderMobile</th>
+          <th>status</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let payment of payment | search:searchText ;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{payment.Price}}</td>
+            <td>{{payment.HolderName}}</td>
+            <td>{{payment.HolderMobile}}</td>
+            <td>{{payment.status}}</td>
+            <td><button (click)="getPaymentDetails(payment)" values="Get details">Get Details
+            </button></td>
+          </tr>
+        </tbody>
+      </table>
+      <ng-container *ngIf="paymentData1">
+        <h3>Selected Payment Details:</h3>
+        <div>Price:{{paymentData.Price}}</div>
+        <div>HolderName:{{paymentData.HolderName}}</div>
+        <div>HolderMobile:{{paymentData.HolderMobile}}</div>
+        <div>status:{{paymentData.status}}</div>
+      </ng-container>
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
