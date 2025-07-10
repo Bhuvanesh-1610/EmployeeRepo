@@ -1,0 +1,20 @@
+
+  <div class="clicks">
+  <button (click)="getuser()">User</button>
+  <button (click)="getTask()">Tasks</button>
+  <button type="button" (click)="resetData()">Reset Data</button>
+</div>
+
+<div class="rigth"><button type="button" (click)="Logout()">Logout</button></div>
+
+  <!-- <button (click)="Tasks()">Task</button> -->
+<ng-container *ngIf="showUser"> 
+     <app-data [userdatas$]="userdetails$" [showUser]="showUser" (detailsEmit)="viewData($event)"></app-data>
+    </ng-container>
+
+    <ng-container *ngIf="showTaskAllocation"> 
+        <app-data [id]="20"[taskdatas$]="taskDetails$" [showUser]="showUser"  (taskDetailsEmit)="viewData($event)"></app-data>
+       </ng-container>
+
+       <!-- <input type="submit" value="Task Allocation" (click)="getTaskallocation()" />
+<app-details [id]="20"  [taskData$]="taskAllocationDetails$"></app-details> -->

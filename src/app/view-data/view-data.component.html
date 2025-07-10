@@ -1,0 +1,24 @@
+<p>view-details works!</p>
+<form [formGroup]="detailsFormGroup" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <input type="text" formControlName="id" placeholder="Id">
+    </div>
+    <!-- <div class="form-control">
+        <input type="number" formControlName="task_id" placeholder="task_id">
+    </div>
+    <div class="form-control">
+        <input type="number" formControlName="developerid" placeholder="Developer Id">
+    </div>
+    <div class="form-control">
+        <input type="number" formControlName="assignedby" placeholder="Manager Id">
+    </div> -->
+    <div class="form-control">
+        <input type="text" formControlName="status" placeholder="Task Status">
+    </div>
+    
+    
+    <div class="form-control">
+        <input type="submit" value="Update Task Details">
+    </div>
+
+</form>

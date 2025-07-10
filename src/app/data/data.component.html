@@ -1,0 +1,72 @@
+
+<div class ="search">
+    <input type="text" placeholder="search" [(ngModel)]="searchText"/>
+
+
+
+
+   
+  </div>
+ <ng-container  >
+<table border="1" *ngIf="showUser">
+    <thead>
+        
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Edit</th>
+           
+        
+    </thead>
+    <tbody>
+            <tr *ngFor="let data of user | search:searchText">
+                <td>{{data.id}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.role}}</td>
+                <td>
+                    <input type="submit" value="edit" (click)="editData(data)">
+                </td>
+               
+                
+            </tr>
+    </tbody>
+</table>
+</ng-container>
+
+<ng-container >
+
+    <table border="1" *ngIf="!showUser">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Task Id</th>
+                <th>Developer Id</th>
+                <th>Assigned By</th>
+                <th>Assingned Date</th>
+                <th>Status</th>
+               <th>edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr *ngFor="let data of task |search:searchText ">
+                    <td>{{data.id}}</td>
+                    <td>{{data.task_id}}</td>
+                    <td>{{data.developerid}}</td>
+                    <td>{{data.assignedby}}</td>
+                    <td>{{data.assignedDate}}</td>
+                    <td>{{data.status}}</td>
+                    <td>
+                        <input type="submit" value="edit" (click)="editTaskData(data)">
+                    </td>
+                    
+                </tr>
+            
+        </tbody>
+    </table>
+
+
+</ng-container>
+
